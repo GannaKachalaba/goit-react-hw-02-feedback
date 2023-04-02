@@ -27,12 +27,8 @@ class App extends Component {
 
   countPositiveFeedback = () => {
     const totalFeedback = this.countTotalFeedback();
-    const goodFeedback = this.state.good;
-    let result = 0;
-
-    if (totalFeedback > 0) {
-      result = Math.ceil((goodFeedback / totalFeedback) * 100);
-    }
+    const { good } = this.state;
+    const result = Math.ceil((good / totalFeedback) * 100) || 0;
 
     return `${result}%`;
   };
